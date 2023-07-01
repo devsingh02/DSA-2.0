@@ -1,0 +1,1 @@
+Define the subproblems in a way that can be used to recursively solve the larger problem.
