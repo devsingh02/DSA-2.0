@@ -9,6 +9,8 @@ public class BruteForce {
         // Output: [[purp, le], [p, ur, p, le]]
         System.out.println(allConstruct("abcdef", new String[] {"ab", "abc", "cd", "def", "abcd", "ef", "c"}));
         // Output: [[ab, cd, ef], [ab, c, def], [abc, def]]
+        System.out.println(allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new String[]{"e", "eee", "eeee", "eeeeeee", "eeeeee", "eeeeeeeeeeeeee", "ee"}));
+
     }
 
     static List<List<String>> allConstruct(String target, String[] arr) {
