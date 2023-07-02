@@ -10,7 +10,7 @@ public class BruteForce {
         if (target == 0) return true;
         if (target < 0) return false;
         for (int num : arr) {
-            if (canSum(target - num, arr)) return true;
+            if (canSum(target - num, arr)) return true; // if ay one path exists...
         }
         return false;
     }
