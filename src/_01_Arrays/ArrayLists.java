@@ -16,6 +16,9 @@ package _01_Arrays;/* ArrayList -> Array + dynamic size (indexed✔)
 */
 // Arrays are FASTER than ArrayLists : so prefer them when possible
 
+// table.add(0, x) -> X         //shifts all else, put x at 0
+// table.set(0, x) -> Correct   //replaces 0
+
 import java.util.*;
 
 public class ArrayLists {
