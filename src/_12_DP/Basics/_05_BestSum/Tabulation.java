@@ -22,8 +22,8 @@ public class Tabulation {
                 if (i + num <= target) {
                     List<Integer> curr = new ArrayList<>(table.get(i));
                     curr.add(num);
-                    List<Integer> upd = table.get(i + num); // don't update upd (call by reference)
-                    if (upd == null || upd.size() > curr.size()) table.set(i + num, curr);
+                    List<Integer> next = table.get(i + num); // don't update upd (call by reference)
+                    if (next == null || next.size() > curr.size()) table.set(i + num, curr);
                 }
             }
         }
