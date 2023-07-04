@@ -90,4 +90,10 @@ IMPORTANT NOTES :-
 2.   List<Integer> list = new ArrayList<>( SIZE );
 
 3.   List<Integer> list = new ArrayList<>(null); -> ERROR
+
+4.   for (List<String> subArray : table.get(i)) {
+        List<String> newArray = new ArrayList<>(subArray);
+        newArray.add(word);
+        newCombinations.add(newArray);
+     }
  */

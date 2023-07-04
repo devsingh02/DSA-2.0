@@ -11,7 +11,7 @@ public class Tabulation {
     }
 
     static List<Integer> howSum(int target, int[] arr) {
-        List<List<Integer>> table = new ArrayList<>();
+        List<List<Integer>> table = new ArrayList<>(target + 1);
         for (int i = 0; i <= target; i++) table.add(null);
         table.set(0, new ArrayList<>()); //[ [] , null , .....]
 
