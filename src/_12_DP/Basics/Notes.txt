@@ -2,7 +2,10 @@ While the memoization algorithms are easier to understand and implement,
 they can cause the stack overflow (SO) error. The tabulation algorithms are iterative,
 so they don't throw the SO error but are generally harder to design.
 
- Memoization is a top-down approach that uses recursion,
- while tabulation is a bottom-up approach that uses iteration.
+Memoization is a top-down approach that uses recursion,
+while tabulation is a bottom-up approach that uses iteration.
 
 Tabulation > Memoization
+
+String :-
+"abcdef".startsWith("ab", 0) -> true
