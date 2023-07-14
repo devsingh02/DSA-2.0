@@ -1,4 +1,4 @@
-package _07_Backtracking;
+package _07_Backtracking.Puzzles;
 
 public class NKnights { //horse
     public static void main(String[] args) {

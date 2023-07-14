@@ -1,4 +1,4 @@
-package _07_Backtracking;
+package _07_Backtracking.Puzzles;
 
 class NQueens {
     public static void main(String[] args) {

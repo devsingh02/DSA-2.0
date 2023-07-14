@@ -1,4 +1,4 @@
-package _07_Backtracking;
+package _07_Backtracking.Puzzles;
 
 public class SudokuSolver {
     public static void main(String[] args) {

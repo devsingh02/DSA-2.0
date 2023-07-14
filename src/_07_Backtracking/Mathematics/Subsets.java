@@ -1,10 +1,11 @@
-package _07_Backtracking;
+package _07_Backtracking.Mathematics;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.Arrays;
 
+// Pattern of taking some elements and ignoring others
 public class Subsets {
     public static void main(String[] args) {
         // NO DUPLICATES
@@ -22,18 +23,19 @@ public class Subsets {
         helper(0, arr, curset, subset); //modifies subset // 0th index -> 1
         return subset;
     }
-    static void helper(int i, int[] arr, Stack<Integer> curset, List<List<Integer>> subset) {
+    static void helper(int i, int[] arr, Stack<Integer> curset, List<List<Integer>> subset) {// TAKE / NOT-TAKE "i"
         if (i == arr.length) {  //made every possible choice (took/left every index)
             subset.add(new ArrayList<>(curset));// O(1)
             return;
         }
         //choice -> take 'i'th index
-        curset.push(arr[i]); // [1]
-        helper(i + 1, arr, curset, subset); //move on to 2
+        curset.push(arr[i]); // took i
+        helper(i + 1, arr, curset, subset); //all possible combinations taking "i"
+        curset.pop(); // []     // O(1)    // O(n) in list
 
         //choice -> don't take 'i'th element
-        curset.pop(); // []     // O(1)    // O(n) in list
-        helper(i + 1, arr, curset, subset);
+        // no pushing arr[i]
+        helper(i + 1, arr, curset, subset); //all possible combinations without "i"
     }
 
     // Time: O(n * 2^n), Space: O(n)
@@ -52,8 +54,8 @@ public class Subsets {
         //choice -> take index i
         curset.push(arr[i]);
         helped(i + 1, arr, curset, subset);
-        //choice -> don't take index i + REMOVE DUPLICATES
         curset.pop();
+        //choice -> don't take index i + REMOVE DUPLICATES
         while (i+1 < arr.length && arr[i] == arr[i+1]) i++; //index i now at last duplicate
         helped(i + 1, arr, curset, subset); // i at next new element
     }

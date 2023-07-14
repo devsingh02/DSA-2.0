@@ -87,7 +87,7 @@ IMPORTANT NOTES :-
 1.   List<Integer> curr = new ArrayList<>(table.get(i)); // call by value
      List<Integer> upd = new ArrayList<>(table.get(i + num)); // call by reference
 
-2.   List<Integer> list = new ArrayList<>( SIZE );
+2.   List<Integer> list = new ArrayList<>( SIZE / LIST );
 
 3.   List<Integer> list = new ArrayList<>(null); -> ERROR
 
