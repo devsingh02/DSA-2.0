@@ -6,7 +6,7 @@ import java.util.Stack;
 import java.util.Arrays;
 
 // Pattern of taking some elements and ignoring others
-public class Subsets {
+public class SubSequences { // Subsets / Power-Set
     public static void main(String[] args) {
         // NO DUPLICATES
         int[] arr = {1, 2, 3};
