@@ -2,7 +2,6 @@ package _07_Backtracking.Mathematics;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class Combinations {
     // Given n numbers (1 - n), return all possible combinations of size k.
@@ -16,11 +15,11 @@ public class Combinations {
     // Time : O(k * 2^n)
     static List<List<Integer>> combinationsSubset(int n, int k) {
         List<List<Integer>> subset = new ArrayList<>();
-        Stack<Integer> curset = new Stack<>();
+        List<Integer> curset = new ArrayList<>();
         helper(1, n, k, curset, subset);    // i -> value (1 to 5)
         return subset;
     }
-    static void helper(int i, int n, int k, Stack<Integer> curset, List<List<Integer>> subset) {//take "i"
+    static void helper(int i, int n, int k, List<Integer> curset, List<List<Integer>> subset) {//take "i"
         if (curset.size() == k) {
             subset.add(new ArrayList<>(curset));
             return;
@@ -28,9 +27,9 @@ public class Combinations {
         if (i == n + 1) return;
 
         //choice -> take i
-        curset.push(i); // TAKE "i"
+        curset.add(i); // TAKE "i"
         helper(i + 1, n, k, curset, subset); //all possible combinations with "i"
-        curset.pop();
+        curset.remove(curset.size() - 1);
         //choice -> don't take
         helper(i + 1, n, k, curset, subset);
     }
@@ -39,11 +38,11 @@ public class Combinations {
     // Time : O(k * C(n,k))     : EFFICIENT
     static List<List<Integer>> combinationsNCK(int n, int k) {
         List<List<Integer>> subset = new ArrayList<>();
-        Stack<Integer> curset = new Stack<>();
+        List<Integer> curset = new ArrayList<>();
         helped(1, n, k, curset, subset);
         return subset;
     }
-    static void helped(int i, int n, int k, Stack<Integer> curset, List<List<Integer>> subset) {
+    static void helped(int i, int n, int k, List<Integer> curset, List<List<Integer>> subset) {
         if (curset.size() == k) {
             subset.add(new ArrayList<>(curset));
             return;
@@ -53,7 +52,7 @@ public class Combinations {
         for (int j = i; j <= n; j++) {  // current level
             curset.add(j);  // add
             helped(j + 1, n, k, curset, subset); // NEXT LEVEL // check if can add next || condition fulfilled
-            curset.pop();   // backtrack
+            curset.remove(curset.size() - 1);   // backtrack
         }
     }
 }
