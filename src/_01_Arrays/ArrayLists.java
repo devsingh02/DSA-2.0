@@ -10,7 +10,7 @@ package _01_Arrays;/* ArrayList -> Array + dynamic size (indexed✔)
    list.indexOf(value) : O(n)
    list.contains(value) : O(n) **
    list.set(index,value) : O(1)
-   list.remove(index) : O(n)   [needs index]
+   list.remove(index) : O(n) for beginning ir middle  ||  O(1) if last index is removed ***
    list.remove(Integer.valueOf(value)) : O(n)   [without index]
    Collections.sort(list) : O(nlogn)
 */
@@ -96,4 +96,6 @@ IMPORTANT NOTES :-
         newArray.add(word);
         newCombinations.add(newArray);
      }
+
+5.   FASTER than Stack
  */
