@@ -25,7 +25,7 @@ public class ArrayLists {
     public static void main(String[] args) {
         // ANY OTHER DATATYPE OTHER THAN INT :- DIRECT
         String[] s = {"a", "b", "c"};
-        List<String> list1 = new ArrayList<>(Arrays.asList(s)); //List or ArrayList
+        List<String> list1 = new ArrayList<>(Arrays.asList(s)); //O(n) //List or ArrayList
 
         // FOR INT :- LOOP
         int[] a = {7, 8, 9};
