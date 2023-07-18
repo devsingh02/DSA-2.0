@@ -37,6 +37,8 @@ public class SubSequences { // Subsets / Power-Set
         helper(i + 1, arr, curset, subset); //all possible combinations without "i"
     }
 
+
+
     // Time: O(n * 2^n), Space: O(n)
     static List<List<Integer>> subsetsWithDuplicates(int[] arr) {
         List<List<Integer>> subset = new ArrayList<>();
@@ -50,11 +52,11 @@ public class SubSequences { // Subsets / Power-Set
             subset.add(new ArrayList<>(curset));
             return;
         }
-        //choice -> take index i
+        //TAKE ALL DUPLICATES (recursively it will take)
         curset.add(arr[i]);
         helped(i + 1, arr, curset, subset);
         curset.remove(curset.size() - 1);
-        //choice -> don't take index i + REMOVE DUPLICATES
+        ////SKIP ALL DUPILCATES
         while (i+1 < arr.length && arr[i] == arr[i+1]) i++; //index i now at last duplicate
         helped(i + 1, arr, curset, subset); // i at next new element
     }

@@ -29,7 +29,7 @@ public class ArrayLists {
 
         // FOR INT :- LOOP
         int[] a = {7, 8, 9};
-        ArrayList<Integer> list2 = new ArrayList<>();
+        ArrayList<Integer> list2 = new ArrayList<>();  
 
         for (int I : a) list2.add(I);
 

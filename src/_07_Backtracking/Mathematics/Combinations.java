@@ -3,7 +3,7 @@ package _07_Backtracking.Mathematics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Combinations {
+public class Combinations { // SubSequences with condition
     // Given n numbers (1 - n), return all possible combinations of size k.
     // (n choose k math problem).
     public static void main(String[] args) {
@@ -26,6 +26,7 @@ public class Combinations {
         }
         if (i == n + 1) return;
 
+        // if (cond.) *** to reduce additional recursion + backtracking [which takes considerable time]
         //choice -> take i
         curset.add(i); // TAKE "i"
         helper(i + 1, n, k, curset, subset); //all possible combinations with "i"
