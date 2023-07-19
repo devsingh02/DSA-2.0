@@ -49,7 +49,7 @@ public class NKnights { //horse
         for (boolean[] row : board) {
             for (boolean element : row) {
                 if (element) System.out.print("K ");
-                else System.out.print("O ");
+                else System.out.print(". ");
             }
             System.out.println();
         }

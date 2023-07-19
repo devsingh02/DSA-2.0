@@ -50,7 +50,7 @@ class NQueens {
         for (boolean[] row : board) {
             for (boolean element : row) {
                 if (element) System.out.print("Q ");
-                else System.out.print("X ");
+                else System.out.print(". ");
             }
             System.out.println();
         }
