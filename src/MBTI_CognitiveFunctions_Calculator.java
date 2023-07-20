@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.List;
 
-public class MBTI {
+public class MBTI_CognitiveFunctions_Calculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String mbti = "";
