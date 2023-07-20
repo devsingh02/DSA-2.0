@@ -61,10 +61,10 @@ public class MBTI {
 
     static HashMap<Character, Character> opposites() {
         HashMap<Character, Character> opp = new HashMap<>(4);
-        opp.put('I', 'E'); opp.put('E', 'I');
+//        opp.put('I', 'E'); opp.put('E', 'I');
         opp.put('N', 'S'); opp.put('S', 'N');
         opp.put('F', 'T'); opp.put('T', 'F');
-        opp.put('J', 'P'); opp.put('P', 'J');
+//        opp.put('J', 'P'); opp.put('P', 'J');
         return opp;
     }
 
