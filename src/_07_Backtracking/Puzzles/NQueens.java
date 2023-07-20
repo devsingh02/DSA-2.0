@@ -18,7 +18,7 @@ class NQueens {
         for (int col = 0; col < board[0].length; col++) {   //traversing cols
             if (isSafe(board, row, col)) {
                 board[row][col] = true; //queen placed, now next row
-                count += queens(board, row+1);  //next recursive call
+                count += queens(board, row + 1);  //next recursive call
                 board[row][col] = false; //for checking for next col in same row
             }
         }
@@ -56,6 +56,13 @@ class NQueens {
         }
     }
 }
+
+/*
+    In the above code, its slow (8ms) since we have to again and again check if it is safe or not for each
+    iteration.
+    -> use arrays to keep track of safe rows, diagonals
+ */
+
 
 /* NO FOR LOOPS :-
 
