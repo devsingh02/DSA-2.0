@@ -1,4 +1,4 @@
-package JavaCollectionsFramework;
+package _00_DataStructures;
 /*
 O(1)
  K -> V (i.e. from Key Value can be found. Not vice-versa)
@@ -39,7 +39,6 @@ hm.keySet() > creates Set of Keys
  */
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class HashMaps {
     public static void main(String[] args) {

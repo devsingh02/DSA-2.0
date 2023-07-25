@@ -1,4 +1,4 @@
-package JavaCollectionsFramework;
+package _00_DataStructures;
 /* ArrayList allows duplicate values while HashSet doesn't allow duplicates values.
 ArrayList maintains the order of the object in which they are inserted while HashSet
 is an unordered collection and doesn't maintain any order.

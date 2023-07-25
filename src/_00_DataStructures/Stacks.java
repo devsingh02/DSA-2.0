@@ -1,7 +1,7 @@
  /*
  LIFO
  */
- package JavaCollectionsFramework;
+ package _00_DataStructures;
 
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package JavaCollectionsFramework;
+package _00_DataStructures;
 
  /*
  1. FIFO
