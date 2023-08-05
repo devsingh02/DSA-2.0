@@ -115,7 +115,7 @@ public class BinarySearchTree {
 
 
     private int height(Node node) {
-        if (node == null) return -1;
+        if (node == null) return 0; // -1 ? But 0 gives answer in AVL
         return node.height;
     }
     private boolean isEmpty() {
@@ -128,7 +128,7 @@ public class BinarySearchTree {
         int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13}; //balanced
 //        int[] tree = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //sorted/skewed
 
-        for (int key : tree) root = populate(root, key);
+        for (int key : tree) populate(key);
 //        populateSorted(tree, 0, tree.length - 1);
     }
 
