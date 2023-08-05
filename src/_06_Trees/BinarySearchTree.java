@@ -100,7 +100,7 @@ public class BinarySearchTree {
     }
 
 
-    public void balanced() {
+    public void balanced() {    // Complexity of the tree => O(logn)
         String det;
         if (balanced(root)) det = "";
         else det = "NOT ";
@@ -109,7 +109,7 @@ public class BinarySearchTree {
     }
     private boolean balanced(Node node) {
         if (node == null) return true; //basically fallback
-
+//                                                -1 || 0 || 1
         return Math.abs(height(node.left) - height(node.right)) <= 1 && balanced(node.left) && balanced(node.right);
     }
 
