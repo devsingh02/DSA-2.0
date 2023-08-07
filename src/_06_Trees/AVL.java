@@ -1,6 +1,7 @@
 package _06_Trees;
 
 public class AVL {
+
     static class Node {
         int value;
         Node left, right;
@@ -92,7 +93,7 @@ public class AVL {
 
         if (level == 0) {
             System.out.println(node.value);
-        }else {
+        } else {
             for (int i = 0; i < level - 1; i++) System.out.print("|\t\t");
             System.out.println("|------>" + node.value);
         }

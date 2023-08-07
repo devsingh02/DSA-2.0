@@ -3,7 +3,8 @@ package _06_Trees;
 import java.util.Scanner;
 
 public class BinaryTree {
-   static class Node {
+
+    static class Node {
         int value;
         Node left, right;
         Node(int value) {
