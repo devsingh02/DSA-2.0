@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinarySearchTree {
 
-    static class Node {
+    public static class Node {
         int value;
         Node left, right;
         int height;
@@ -124,7 +124,7 @@ public class BinarySearchTree {
     }
 
 
-    private void sampleTree() {
+    public void sampleTree() {
 //        int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13, 9}; //un-balanced
         int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13}; //balanced
 //        int[] tree = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //sorted/skewed

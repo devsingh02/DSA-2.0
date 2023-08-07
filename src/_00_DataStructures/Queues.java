@@ -25,7 +25,7 @@ public class Queues {
 
         System.out.println("The Head element : " + animals.peek()); // pointer at first element
 
-        System.out.println("Last Element : " + animals.poll()); // poll() returns the deleted value
+        System.out.println("First Element is removed : " + animals.poll()); // poll() returns the deleted value
         System.out.println("After Deletions : " + animals.peek());
 
         System.out.println("Queue -> " + animals);
