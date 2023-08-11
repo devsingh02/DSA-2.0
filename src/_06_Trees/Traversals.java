@@ -23,7 +23,7 @@ public class Traversals extends BinarySearchTree {
             if (curr.left != null) stack.push(curr.left);
         }
     }
-
+    //utilizes call-stack
     public void recursiveDFS() {
         System.out.print("Depth First Traversal {R} : [");
         recursiveDFS(root);

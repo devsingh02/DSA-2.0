@@ -16,6 +16,14 @@ public class BinarySearchTree {
     Node root; // BST has a node root
 
 
+    public void sampleTree() {
+//        int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13, 9}; //un-balanced
+        int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13}; //balanced
+//        int[] tree = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //sorted/skewed
+
+        for (int key : tree) populate(key);
+//        populateSorted(tree, 0, tree.length - 1);
+    }
     public void input(Scanner sc) {
         System.out.println("Start filling the Binary Search Tree :-" );
         String inp = sc.next();
@@ -44,22 +52,6 @@ public class BinarySearchTree {
         populate(nums[mid]);
         populateSorted(nums, start, mid);
         populateSorted(nums, mid + 1, end);
-    }
-
-
-    public void displayTree() {
-        displayTree(root, 0);
-    }
-    private void displayTree(Node node, int level) {
-        if (node == null) return;
-        displayTree(node.right, level + 1);
-        // now "node" at right most level
-        if (level == 0) System.out.println(node.value);
-        else {
-            for (int i = 0; i < level - 1 ; i++) System.out.print("|\t\t");
-            System.out.println("|------>" + node.value);
-        }
-        displayTree(node.left, level + 1);
     }
 
 
@@ -124,14 +116,21 @@ public class BinarySearchTree {
     }
 
 
-    public void sampleTree() {
-//        int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13, 9}; //un-balanced
-        int[] tree = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13}; //balanced
-//        int[] tree = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //sorted/skewed
-
-        for (int key : tree) populate(key);
-//        populateSorted(tree, 0, tree.length - 1);
+    public void displayTree() {
+        displayTree(root, 0);
     }
+    private void displayTree(Node node, int level) {
+        if (node == null) return;
+        displayTree(node.right, level + 1);
+        // now "node" at right most level
+        if (level == 0) System.out.println(node.value);
+        else {
+            for (int i = 0; i < level - 1 ; i++) System.out.print("|\t\t");
+            System.out.println("|------>" + node.value);
+        }
+        displayTree(node.left, level + 1);
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
