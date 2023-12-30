@@ -15,7 +15,7 @@ hm.putIfAbsent(K, V)
 hm.remove(K) -> deletes K, V
 
 hm.containsKey(K) -> if key exists : returns true ***
-                   -> if it doesn't   : returns false
+                  -> if it doesn't : returns false
 hm.containsValue(V) ***
 
 hm.get(K) -> exists : return Value (get(key) only) ***
