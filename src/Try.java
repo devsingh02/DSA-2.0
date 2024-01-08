@@ -1,124 +1,28 @@
-import java.util.ArrayList;
-import java.util.List;
+public class Try {
+    // Returns length of LCS for X[0..m-1], Y[0..n-1]
+    static String res = "";
 
-class Try {
+    static int LCS(char[] X, char[] Y, int m, int n) {
+        // BASE CASE => Smallest Valid Input
+        if (m == 0 || n == 0) return 0;
+
+        // CHOICE DIAGRAM
+        if (X[m-1] == Y[n-1]) {
+            res = X[m-1] + res; // Append character to the beginning of the result string
+            return 1 + LCS(X, Y, m - 1, n - 1);
+        } else {
+            int lcs1 = LCS(X, Y, m, n - 1);
+            int lcs2 = LCS(X, Y, m - 1, n);
+            return Math.max(lcs1, lcs2);
+        }
+    }
+
+    // Driver code
     public static void main(String[] args) {
-        System.out.println(solveNQueens(4));
-    }
-    static List<List<String>> solveNQueens(int n) {
-        // Constructing all TOOLS necessary
-        char[][] board = new char[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                board[i][j] = '.';
-            }
-        }
-        List<List<String>> result = new ArrayList<>();
-        int[] usedCols = new int[n];    // 1 if Q present
-        int[] usedLeftDiagonals = new int[2*n - 1];
-        int[] usedRightDiagonals = new int[2*n - 1];
-
-        solve(0, board, usedCols, usedLeftDiagonals, usedRightDiagonals, result);
-        return result;
-    }
-    static void solve(int row, char[][] board, int[] usedCols, int[] usedLeftDiagonals, int[] usedRightDiagonals, List<List<String>> result) {
-        if (row == board.length) {
-            result.add(new ArrayList<>(arrayToList(board)));
-            return;
-        }
-        for (int col = 0; col < board.length; col++) {
-            // Put if Safe
-            if (usedCols[col] == 0 && usedLeftDiagonals[board.length - 1 - row + col] == 0 && usedRightDiagonals[row + col] == 0) {
-                board[row][col] = 'Q';
-                usedCols[col] = 1;
-                usedLeftDiagonals[board.length - 1 - row + col] = 1;
-                usedRightDiagonals[row + col] = 1;
-                solve(row + 1, board, usedCols, usedLeftDiagonals, usedRightDiagonals, result); // all updated
-                //backtrack
-                board[row][col] = '.';
-                usedCols[col] = 0;
-                usedLeftDiagonals[board.length - 1 - row + col] = 0;
-                usedRightDiagonals[row + col] = 0;
-            }
-        }
-    }
-
-    static List<String> arrayToList(char[][] board) {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < board.length; i++) {
-            String row = "";
-            for (int j = 0; j < board.length; j++) {
-                row += board[i][j];
-            }
-            list.add(row);
-        }
-        return list;
+        String str1 = "AGGTAB";
+        String str2 = "GXTXAYB";
+        int lengthOfLCS = LCS(str1.toCharArray(), str2.toCharArray(), str1.length(), str2.length());
+        System.out.println("Length of LCS is = " + lengthOfLCS);
+        System.out.println("LCS is = " + res);
     }
 }
-
-
-
-//import java.util.ArrayList;
-//import java.util.LinkedList;
-//import java.util.List;
-//
-//class Try {
-//    public static void main(String[] args) {
-//        System.out.println(solveNQueens(4));
-//    }
-//    static List<List<String>> solveNQueens(int n) {
-//        // Initialize the chess board with empty cells represented by '.'
-//        char[][] board = new char[n][n];
-//        for(int i = 0; i < n; i++){
-//            for(int j = 0; j < n; j++){
-//                board[i][j] = '.';
-//            }
-//        }
-//        // Initialize lists to store the solutions
-//        List<List<String>> res = new ArrayList<>();
-//        // Initialize arrays to keep track of used columns and diagonals
-//        int[] usedCols = new int[n];  //default All = 0
-//        int[] usedRightDiagonal = new int[2*n - 1];
-//        int[] usedLeftDiagonal = new int[2*n - 1];
-//        // Call the recursive solve method
-//        solve(0, board, res, usedCols, usedRightDiagonal, usedLeftDiagonal);
-//        // Return the solutions
-//        return res;
-//    }
-//    // Recursive function to solve the N-Queens problem
-//    static void solve(int row, char[][] board, List<List<String>> res, int[] usedCols, int[] usedRightDiagonal, int[] usedLeftDiagonal){
-//        // If all rows are filled with queens, add the solution to the list and return
-//        if (row == board.length){
-//            res.add(construct(board));
-//            return;
-//        }
-//        // Try placing a queen in each column of the current row
-//        for (int col = 0; col < board.length; col++){
-//            // Check if the current cell is safe for a queen
-//            if(usedCols[col] == 0 && usedRightDiagonal[row + col] == 0 && usedLeftDiagonal[board.length - 1 - row + col] == 0){
-//                // Place the queen in the current cell
-//                board[row][col] = 'Q';
-//                // Mark the used column and diagonals
-//                usedCols[col] = 1;
-//                usedRightDiagonal[col + row] = 1;
-//                usedLeftDiagonal[board.length - 1 - row + col] = 1;
-//                // Recursively solve for the next row
-//                solve(row + 1, board, res, usedCols, usedRightDiagonal, usedLeftDiagonal);
-//                // Remove the queen from the current cell && Unmark the used column and diagonals
-//                board[row][col] = '.';
-//                usedCols[col] = 0;
-//                usedRightDiagonal[col + row] = 0;
-//                usedLeftDiagonal[board.length - 1 - row + col] = 0;
-//            }
-//        }
-//    }
-//    // Helper function to construct a list of strings representing the chess board
-//    static List<String> construct(char board[][]){
-//        List<String> res = new LinkedList<>();
-//        for(int i = 0; i < board.length; i++){
-//            String s = new String(board[i]);
-//            res.add(s);
-//        }
-//        return res;
-//    }
-//}
