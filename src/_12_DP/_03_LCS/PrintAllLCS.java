@@ -1,5 +1,6 @@
+package _12_DP._03_LCS;
 import java.util.*;
-public class Try {
+public class PrintAllLCS {
     public List<String> all_longest_common_subsequences(String s, String t)
     {
         String s1 = s, s2 = t;
@@ -7,10 +8,14 @@ public class Try {
 
         int[][] dp = makeLCStable(m, n, s1, s2);
 
-        List<String> ans = new ArrayList<>();
+        Set<String> ans = new HashSet<>();
         backtrack(m, n, s1, s2, dp, ans, "");
-        Collections.sort(ans);
-        return ans;
+
+        List<String> Ans = new ArrayList<>(ans);
+        Collections.sort(Ans);
+
+        System.out.println(count(m, n, s1, s2, dp));
+        return Ans;
     }
 
     int[][] makeLCStable(int m, int n, String s1, String s2) {
@@ -26,7 +31,7 @@ public class Try {
         return dp;
     }
 
-    void backtrack(int i, int j, String s1, String s2, int[][] dp, List<String> ans, String curr) {
+    void backtrack(int i, int j, String s1, String s2, int[][] dp, Set<String> ans, String curr) {
         if (i == 0 || j == 0) {
             ans.add(curr);
             return;
@@ -41,12 +46,25 @@ public class Try {
 
         }
     }
+    // code for printing all possible LCS (even repitions)
+    int count(int m, int n, String s1, String s2, int[][] dp) {
+        if (m == 0 || n == 0) return 1;
+
+        int ct = 0;
+        if (s1.charAt(m - 1) == s2.charAt(n - 1))
+            ct += count(m - 1, n - 1, s1, s2, dp);
+        else {
+            if (dp[m - 1][n] >= dp[m][n - 1]) ct += count(m - 1, n, s1, s2, dp);
+            if (dp[m - 1][n] <= dp[m][n - 1]) ct += count(m, n - 1, s1, s2, dp);
+        }
+        return ct;
+    }
 
     public static void main(String[] args) {
-        Try obj = new Try();
-        String s1 = "rabbbit";
-        String s2 = "rabbit";
-        List<String> result = obj.all_longest_common_subsequences(s1, s2);
+        PrintAllLCS solution = new PrintAllLCS();
+        String s1 = "abaaa";
+        String s2 = "baabaca";
+        List<String> result = solution.all_longest_common_subsequences(s1, s2);
         System.out.println("Longest Common Subsequences:");
         for (String seq : result) {
             System.out.println(seq);
