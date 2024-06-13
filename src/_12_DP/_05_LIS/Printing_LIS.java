@@ -1,5 +1,7 @@
+package _12_DP._05_LIS;
+
 import java.util.*;
-class Try {
+class Printing_LIS {
     public void LIS(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
@@ -7,7 +9,7 @@ class Try {
         // dp[i] => LIS till i-th index
         int[] hash = new int[n]; // stores the index of prev (subsequence)
 
-        int max = 1, max_ind = -1;
+        int max_ind = 0;
         for (int i = 1; i < n; i++) {
             hash[i] = i; // firstly initialize it with its own index
             for (int prev = 0; prev < i; prev++) {
@@ -16,10 +18,7 @@ class Try {
                     hash[i] = prev;
                 }
             }
-            if (max < dp[i]) {
-                max = dp[i];
-                max_ind = i;
-            }
+            if (dp[max_ind] < dp[i]) max_ind = i;
         }
 
         List<Integer> lis = new ArrayList<>();
@@ -35,10 +34,11 @@ class Try {
     }
 
     public static void main(String[] args) {
-        Try solution = new Try();
+        Printing_LIS obj = new Printing_LIS();
 
         int[] nums1 = {10, 9, 2, 5, 3, 7, 101, 18};
         int[] nums2 = {5, 4, 11, 1, 16, 8};
-        solution.LIS(nums1);
+        obj.LIS(nums1);
     }
 }
+
