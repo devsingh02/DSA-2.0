@@ -1,6 +1,11 @@
  /*
  LIFO
  */
+
+ // push / add -> add element to stack
+ // pop -> also returns the popped value
+ // peek -> returns the last element without removing it
+
  package _00_DataStructures;
 
 import java.util.Stack;

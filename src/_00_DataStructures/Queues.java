@@ -7,7 +7,7 @@ package _00_DataStructures;
  3. Function equivalent but throws exception if false :-
     offer() <-> add()
     poll() <-> remove()
-    seek() <-> element()
+    peek() <-> element()
  */
 
 import java.util.Queue;
