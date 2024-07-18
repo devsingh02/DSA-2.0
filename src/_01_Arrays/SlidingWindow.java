@@ -21,7 +21,7 @@ public class SlidingWindow {
     }
 
     //**VARIABLE**
-    //find the length of the logest sub-array with each element same
+    //find the length of the longest sub-array with each element same
     public static int longestSame(int[] a) {
         int length = 0, L = 0;
         for (int R = 0; R < a.length; R++) {

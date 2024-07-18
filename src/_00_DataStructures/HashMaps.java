@@ -75,7 +75,7 @@ public class HashMaps {
 
         //Iteration (2) : through Keys (can get values K->V)
         for (String K : hm.keySet()) {
-            System.out.print(K + " ");
+            System.out.print(K + " " + hm.get(K) +" | ");
         }
         System.out.println();
 //        System.out.println(hm);
